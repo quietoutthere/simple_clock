@@ -1,17 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="stylesheet.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>A Simple Digital Clock</title>
-    <script defer src="js/clock.js"></script>
+    <link rel="stylesheet" href="stylesheet.css">
 </head>
 <body>
-    <strong>A SIMPLE DIGITAL CLOCK</strong>
+    <strong class="title">A SIMPLE DIGITAL CLOCK</strong>
     <hr>
- 
-    
+    <div class="time" id="myTime">
+        <span class="hour" id="hour">Hour</span>:
+        <span class="minute" id="minute">Minute</span>:
+        <span class="second" id="second">Second</span>   
+    </div>
+    <div class="date" id="myDate">
+        <span class="month"id="month">Month,</span>
+        <span class="day"id="day">Day,</span>
+        <span class="year"id="year">Year</span>
+    </div>
+    <script src="js/clock.js"></script>
 </body>
 </html>
