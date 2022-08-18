@@ -1,26 +1,50 @@
-var date = new Date();
-    month = date.getMonth()
-    months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "Ocotober", "November", "December"];
-    newMonth = months[month]
+function tickingClock() {
 
+    var date = new Date();
+        month = date.getMonth()
+        months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "Ocotober", "November", "December"];
+        newMonth = months[month];
+        dayName = date.getDay(); 
+        days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday",]
+        newDays = days[dayName]
+    
+    document.getElementById("dayName").textContent = newDays
+    document.getElementById("month").textContent = newMonth
+    document.getElementById("day").textContent = addLetters(date.getDay())
+    document.getElementById("year").textContent = date.getFullYear()
 
-//pulling date from var date to html sheet 
-const displayMonth = document.getElementById("month")
-    displayMonth.textContent = newMonth
-displayDay = document.getElementById("day").textContent = date.getDay()
-document.getElementById("year").textContent = date.getFullYear()
+    let newHours = 
+        document.getElementById("hour").textContent = addZero(date.getHours())
+    document.getElementById("minute").textContent = addZero(date.getMinutes())
+    document.getElementById("second").textContent = addZero(date.getSeconds())
+    document.getElementById("AM_PM").textContent = addAM_PM(newHours)
 
-//pulling time from var date to html sheet
-document.getElementById("hour").textContent = date.getHours()
-document.getElementById("minute").textContent = date.getMinutes()
-document.getElementById("second").textContent = date.getSeconds()
+}
+
 
 function addZero(time) {
-    if (time <10) {
-        return 0 + time;
+    if (time < 10) {
+        return "0" + time;
+    } else {
+        return time;
     }
-        else return time;
-    }
-    
+}
 
+function addLetters(day) {
+    if (day === 1 | day === 21 | day === 31) {
+        return day +"st";
+    } if (day === 2 | day === 22)  {
+        return day +"nd";
+    } if (day === 3 | day === 23) {
+        return day +"rd";
+    } else return day +"th"
+}
+
+function addAM_PM(clock) {
+    if (clock <12 | clock > 0) {
+        return "AM";
+    } else return "PM"
+}
+
+setInterval(tickingClock, 10)
 
