@@ -41,7 +41,7 @@ function addLetters(day) {
 }
 
 function addAM_PM(clock) {
-    if (clock <12 | clock > 0) {
+    if (clock <12) {
         return "AM";
     } else return "PM"
 }
