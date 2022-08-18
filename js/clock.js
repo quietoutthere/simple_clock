@@ -10,7 +10,7 @@ function tickingClock() {
     
     document.getElementById("dayName").textContent = newDays
     document.getElementById("month").textContent = newMonth
-    document.getElementById("day").textContent = addLetters(date.getDay())
+    document.getElementById("day").textContent = addLetters(date.getDate())
     document.getElementById("year").textContent = date.getFullYear()
 
     let newHours = 
