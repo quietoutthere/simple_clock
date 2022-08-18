@@ -7,5 +7,8 @@ The bulk of this project was created using Java Script. It's a basic digital clo
 
 Author:
 
-Evan Oyster
+Evan Oyster - Full Stack Developer
+
+[LinkedIn](https://www.linkedin.com/in/evan-oyster-442121249/) 
+
 
