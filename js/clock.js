@@ -22,6 +22,7 @@ function tickingClock() {
     const seconds = addZero(newDate.getSeconds());
     const ampm = addAM_PM(hours);
     const fullYear = newDate.getFullYear()
+    const displayStandardHours =getStandardHours(`${hours} :`)
     
     
     displayDayName.textContent = `${newDays},`
@@ -30,7 +31,7 @@ function tickingClock() {
     displayYear.textContent = fullYear
 
      
-    dispslayHour.textContent = `${hours} :`
+    dispslayHour.textContent = displayStandardHours
     displayMinute.textContent = `${minutes} :`
     displaySecond.textContent = seconds
     displayAmPm.textContent = ampm
@@ -62,5 +63,18 @@ function addAM_PM(clock) {
     } else return "PM"
 }
 
+function getStandardHours(militaryHours) {
+    if (militaryHours === 0) {
+      return 12
+    } else if (militaryHours > 12) {
+      return militaryHours - 12
+    } else {
+      return militaryHours
+    }
+  }
+
+function militaryTime() {
+
+}
 setInterval(tickingClock, 1000)
 
