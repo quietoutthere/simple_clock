@@ -1,23 +1,39 @@
 function tickingClock() {
 
-    var date = new Date();
-        month = date.getMonth()
-        months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "Ocotober", "November", "December"];
-        newMonth = months[month];
-        dayName = date.getDay(); 
-        days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday",]
-        newDays = days[dayName]
-    
-    document.getElementById("dayName").textContent = newDays
-    document.getElementById("month").textContent = newMonth
-    document.getElementById("day").textContent = addLetters(date.getDate())
-    document.getElementById("year").textContent = date.getFullYear()
+    const displayDayName = document.getElementById("dayName");
+    const displayMonth = document.getElementById("month");
+    const displayDay = document.getElementById("day");
+    const displayYear = document.getElementById("year");
+    const dispslayHour = document.getElementById("hour");
+    const displayMinute = document.getElementById("minute");
+    const displaySecond = document.getElementById("second");
+    const displayAmPm = document.getElementById("AM_PM");
 
-    let newHours = 
-        document.getElementById("hour").textContent = addZero(date.getHours())
-    document.getElementById("minute").textContent = addZero(date.getMinutes())
-    document.getElementById("second").textContent = addZero(date.getSeconds())
-    document.getElementById("AM_PM").textContent = addAM_PM(newHours)
+    const newDate = new Date();
+    const month = newDate.getMonth()
+    const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "Ocotober", "November", "December"];
+    const newMonth = months[month];
+    const dayName = newDate.getDay(); 
+    const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday",];
+    const newDays = days[dayName];
+    const date = addLetters(newDate.getDate());
+    const hours = addZero(newDate.getHours());
+    const minutes = addZero(newDate.getMinutes());
+    const seconds = addZero(newDate.getSeconds());
+    const ampm = addAM_PM(hours);
+    const fullYear = newDate.getFullYear()
+    
+    
+    displayDayName.textContent = `${newDays},`
+    displayMonth.textContent = newMonth
+    displayDay.textContent = date
+    displayYear.textContent = fullYear
+
+     
+    dispslayHour.textContent = `${hours} :`
+    displayMinute.textContent = `${minutes} :`
+    displaySecond.textContent = seconds
+    displayAmPm.textContent = ampm
 
 }
 
@@ -46,5 +62,5 @@ function addAM_PM(clock) {
     } else return "PM"
 }
 
-setInterval(tickingClock, 10)
+setInterval(tickingClock, 1000)
 
